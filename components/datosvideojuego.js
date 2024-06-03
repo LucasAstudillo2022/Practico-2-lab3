@@ -14,33 +14,32 @@ app.component('dato-videojuego',
     /*html*/
     `
     <div class="info-videojuego">
-    
     <table border="1">
-      <thead>
       <tr>
       <th>Nombre</th>
       <th>Plataforma</th>
       <th>Estado</th>
-      <th>Puntaje</th>
-      <th>Mas Info</th>
-      <th></th>
-      </tr>      
-        <tr v-for="(dato, index) in datos" :key="index"  @click="mostrardatos(dato)"></th>
-        <th>{{ dato.nombre }}</th>
-        <th>{{ dato.plataforma }}</th>
-        <th>{{ dato.estado }}</th>
-        <th>{{ dato.puntaje }}</th>
-        
-          
+      <th>Puntaje</th>    
+      </tr>     
+      <tr v-for="dato in datos" :key="dato"  @click="mostrardatos(dato)">
+        <td>{{ dato.nombre }}</td>
+        <td>{{ dato.plataforma }}</td>
+        <td>{{ dato.estado }}</td>
+        <td>{{ dato.puntaje }}</td> 
       </tr>    
-      
+      </table>
     </div>
    `, 
-  data(){
-  },
-  methods:{
-    
-  }
+ methods:{
+  mostrardatos(dato){
+    debugger
+      
+    this.$emit('datos-extra', dato)
+    console.log(dato)
+    debugger
+     
+   }
+ }
     
 
     

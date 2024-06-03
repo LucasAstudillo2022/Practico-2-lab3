@@ -1,8 +1,9 @@
 app.component('dato-extra',{
-   prop:{
-    datos:{
-        type: Array,
+   props:{
+    juegoSeleccionado:{
+        type: Object,
         requerid:true
+        
         
     }
    },
@@ -10,26 +11,20 @@ app.component('dato-extra',{
     
    /*html*/
    `
-   <div class="info-videojuego">
-    
-   <table border="1">
-     <thead>
-     <tr>
-     <th>Nombre</th>
-     <th>Plataforma</th>
-     <th>Estado</th>
-     <th>Puntaje</th>
-     <th>Mas Info</th>
-     <th></th>
-     </tr>      
-       <tr v-for="(dato, index) in datos" :key="index"></th>
-       <th>{{ dato.nombre }}</th>
-       <th>{{ dato.plataforma }}</th>
-       <th>{{ dato.estado }}</th>
-       <th>{{ dato.puntaje }}</th>
+
+   <div class="info-videojuego" v-if="juegoSeleccionado!=null">
+   <ul>
+       <li>Nombre: {{ juegoSeleccionado.nombre }} </li>
+       <li>Plataforma: {{ juegoSeleccionado.plataforma }} </li>
+       <li>Estado: {{ juegoSeleccionado.estado }} </li>
+       <li>Puntaje: {{ juegoSeleccionado.puntaje }} </li>    
+       </ul>
        
          
-     </tr>    
-`
+      
+     </div>`,    
+    
+
+
    
 })

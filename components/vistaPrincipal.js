@@ -21,20 +21,16 @@ app.component('vista-principal',{
 
 
 
-    <dato-videojuego
+   <dato-videojuego
     v-if="datos.length" 
-    :datos="datos">
-    </review-list>
+    :datos="datos"
+    @datos-extra="guardardato">
+    </dato-videojuego>
 
-    <dato-extra :@datos-extra></dato-extra>
-
-
-
-
-    
-
-    <!--<filtro-busqueda ></filtro-busqueda><br><br>-->
-    
+    <dato-extra 
+    :juego-seleccionado="juegoSeleccionado">
+    </dato-extra>
+        
 
     
 
@@ -47,7 +43,8 @@ app.component('vista-principal',{
     data(){
     return{
         titulo:'Nuevo Video Juego',
-        datos:[]
+        datos:[],
+        juegoSeleccionado:null
         
     }
     
@@ -61,11 +58,13 @@ methods:
         debugger
 
     },
-    mostrardatos(dato){
-      
-        this.$emit('datos-extra', dato)
-         
-       }
+    guardardato(dato){
+        this.juegoSeleccionado=dato;
+        
+        debugger
+
+    }
+    
 }
 
 })
