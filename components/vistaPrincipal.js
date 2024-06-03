@@ -26,7 +26,7 @@ app.component('vista-principal',{
     :datos="datos">
     </review-list>
 
-    <!--<mas-info @mostrardatos="datos" :datos="datos"></mas-info>-->
+    <dato-extra :@datos-extra></dato-extra>
 
 
 
@@ -60,7 +60,12 @@ methods:
         this.datos.push(dato)
         debugger
 
-    }
+    },
+    mostrardatos(dato){
+      
+        this.$emit('datos-extra', dato)
+         
+       }
 }
 
 })

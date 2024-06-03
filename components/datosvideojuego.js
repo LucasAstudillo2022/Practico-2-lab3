@@ -25,28 +25,24 @@ app.component('dato-videojuego',
       <th>Mas Info</th>
       <th></th>
       </tr>      
-        <tr v-for="(dato, index) in datos" :key="index"></th>
+        <tr v-for="(dato, index) in datos" :key="index"  @click="mostrardatos(dato)"></th>
         <th>{{ dato.nombre }}</th>
         <th>{{ dato.plataforma }}</th>
         <th>{{ dato.estado }}</th>
         <th>{{ dato.puntaje }}</th>
-        <th><button class="masinfo" @click ="mostrardatos">+ </th>
+        
           
       </tr>    
       
     </div>
-  `,
+   `, 
   data(){
   },
-    methods:{
-      
-      /*mostrardatos(){
-        debugger
-        {{dato.nombre}}{{dato.plataforma}}{{dato.estado}}{{dato.puntaje}}
-        debugger
+  methods:{
+    
+  }
+    
 
-      }*/
-
-    }
+    
   
 })
